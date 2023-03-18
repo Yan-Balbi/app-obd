@@ -161,4 +161,46 @@ class Obd2Plugin {
     await _bluetooth.getBondStateForAddress(_device.address);
     return state.isBonded;
   }
+
+  String hexToAscii(String hexString) => List.generate(
+    hexString.length ~/ 2,
+        (i) => String.fromCharCode(
+        int.parse(hexString.substring(i * 2, (i * 2) + 2), radix: 16)),
+  ).join();
+
+  String decodeVIN(String vinHex) {
+    String vin = "";
+    vinHex = vinHex.replaceAll("\n", "");
+    vinHex = vinHex.replaceAll("\r", "");
+    vinHex = vinHex.replaceAll(">", "");
+    vinHex = vinHex.replaceAll("SEARCHING...", "");
+    vinHex = vinHex.replaceAll(" ", "");
+    vinHex = vinHex.replaceAll("490201", "");
+    vinHex = vinHex.replaceAll("490202", "");
+    vinHex = vinHex.replaceAll("490203", "");
+    vinHex = vinHex.replaceAll("490204", "");
+    vinHex = vinHex.replaceAll("490205", "");
+    vinHex = vinHex.substring(10);
+    vin = hexToAscii(vinHex);
+    print(vinHex);
+    return vin;
+  }
+
+  String decodeVINCAN(String vinHexCan) {
+    String vin = "";
+    //vinHex = vinHex
+    vinHexCan= vinHexCan.replaceAll("\n", "");
+    vinHexCan = vinHexCan.replaceAll("\r", "");
+    vinHexCan = vinHexCan.replaceAll(">", "");
+    vinHexCan = vinHexCan.replaceAll("SEARCHING...", "");
+    vinHexCan = vinHexCan.replaceAll(" ", "");
+    vinHexCan = vinHexCan.replaceAll("0:", "");
+    vinHexCan = vinHexCan.replaceAll("1:", "");
+    vinHexCan = vinHexCan.replaceAll("2:", "");
+    vinHexCan = vinHexCan.replaceAll("490201", "");
+    vinHexCan = vinHexCan.substring(7);
+    vin = hexToAscii(vinHexCan);
+    print(vinHexCan);
+    return vin;
+  }
 }

@@ -1,16 +1,15 @@
-# teste_software3
+# testObd2Plugin
 
 A new Flutter project.
 
-## Getting Started
+## Bibliotecas usadas
 
-This project is a starting point for a Flutter application.
+Projeto criado com o intuito de fazer testes de software nas funções da classe Obd2Plugin.
+As funções desenvolvidas para conexão Bluetooth foram baseadas na biblioteca flutter_bluetooth_serial, disponível em: https://pub.dev/packages/flutter_bluetooth_serial.
+Os mocks feitos para as funções que usam conexão blueooth foram usadas com a biblioteca Mockito, disponível em: https://pub.dev/packages/mockito.
 
-A few resources to get you started if this is your first Flutter project:
+## Obd2Plugin
+A classe Obd2Plugin foi desenvolvida pela equipe do Inmetro com auxílio da biblioteca flutter_bluetooth_serial
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## obd2_plugin_test
+O seguinte módulo foi desenvolvido pelo autor e tem o objetivo de apresentar os testes feitos com base na classe já implementada Obd2plugin.
